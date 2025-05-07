@@ -1,0 +1,22 @@
+<style>
+  footer {
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<footer>
+  <p>
+    &copy; <span id="year"></span> JABOUU (Isak Grönlund). Licensed with MIT.
+  </p>
+</footer>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const currentYear = new Date().getFullYear();
+    document.querySelector("#year").textContent =
+      currentYear === 2025 ? "2025" : `2025 - ${currentYear}`;
+  });
+</script>

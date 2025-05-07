@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Converter - JABOUU</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      main {
+        display: flex;
+        width: 90%;
+        max-width: 1200px;
+        gap: 20px;
+      }
+
+      .container {
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .left {
+        background-color: #e3f2fd;
+      }
+
+      .middle-left {
+        background-color: #84d877;
+      }
+
+      .middle {
+        background-color: #fce4ec;
+      }
+
+      .middle-right {
+        background-color: #1affff;
+      }
+
+      .right {
+        background-color: #e8f5e9;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container left">
+        <h2>RGB to Hex Converter</h2>
+        <p>Enter RGB values to convert them to Hexadecimal:</p>
+        <form id="rgbToHexForm">
+          <label for="red">Red:</label>
+          <input type="number" id="red" name="red" min="0" max="255" required />
+          <br />
+          <label for="green">Green:</label>
+          <input
+            type="number"
+            id="green"
+            name="green"
+            min="0"
+            max="255"
+            required
+          />
+          <br />
+          <label for="blue">Blue:</label>
+          <input
+            type="number"
+            id="blue"
+            name="blue"
+            min="0"
+            max="255"
+            required
+          />
+          <br />
+          <button type="submit">Convert</button>
+        </form>
+        <p id="rgbToHexResult"></p>
+      </div>
+      <div class="container middle-left">
+        <h2>Hex to RGB Converter</h2>
+        <p>Enter a Hexadecimal color code to convert it to RGB:</p>
+        <form id="hexToRgbForm">
+          <label for="hex">Hex:</label>
+          <input
+            type="text"
+            id="hex"
+            name="hex"
+            maxlength="7"
+            placeholder="#000000"
+            required
+          />
+          <br />
+          <button type="submit">Convert</button>
+        </form>
+        <p id="hexToRgbResult"></p>
+      </div>
+      <div class="container middle">
+        <h2>Color Previewer</h2>
+        <p>Enter RGB values to preview the color:</p>
+        <form id="colorPreviewForm">
+          <label for="previewRed">Red:</label>
+          <input
+            type="number"
+            id="previewRed"
+            name="previewRed"
+            min="0"
+            max="255"
+            required
+          />
+          <br />
+          <label for="previewGreen">Green:</label>
+          <input
+            type="number"
+            id="previewGreen"
+            name="previewGreen"
+            min="0"
+            max="255"
+            required
+          />
+          <br />
+          <label for="previewBlue">Blue:</label>
+          <input
+            type="number"
+            id="previewBlue"
+            name="previewBlue"
+            min="0"
+            max="255"
+            required
+          />
+          <p>Or use a hex value:</p>
+          <input type="text" id="previewHex" />
+          <br /><br />
+          <button type="button" id="previewColorButton">Preview</button>
+        </form>
+        <div
+          id="colorPreviewBox"
+          style="
+            margin-top: 20px;
+            width: 100%;
+            height: 100px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+          "
+        ></div>
+      </div>
+      <div class="container middle-right">
+        <h2>RGB to HSL Converter</h2>
+        <p>Enter RGB values to convert them to HSL:</p>
+        <form id="rgbToHslForm">
+          <label for="hslRed">Red:</label>
+          <input
+            type="number"
+            id="hslRed"
+            name="hslRed"
+            min="0"
+            max="255"
+            required
+          />
+          <br />
+          <label for="hslGreen">Green:</label>
+          <input
+            type="number"
+            id="hslGreen"
+            name="hslGreen"
+            min="0"
+            max="255"
+            required
+          />
+          <br />
+          <label for="hslBlue">Blue:</label>
+          <input
+            type="number"
+            id="hslBlue"
+            name="hslBlue"
+            min="0"
+            max="255"
+            required
+          />
+          <br />
+          <button type="submit">Convert</button>
+        </form>
+        <p id="rgbToHslResult"></p>
+      </div>
+      <div class="container right">
+        <h2>HSL to RGB Converter</h2>
+        <p>Enter HSL values to convert them to RGB:</p>
+        <form id="hslToRgbForm">
+          <label for="hue">Hue (0-360):</label>
+          <input type="number" id="hue" name="hue" min="0" max="360" required />
+          <br />
+          <label for="saturation">Saturation (0-100%):</label>
+          <input
+            type="number"
+            id="saturation"
+            name="saturation"
+            min="0"
+            max="100"
+            required
+          />
+          <br />
+          <label for="lightness">Lightness (0-100%):</label>
+          <input
+            type="number"
+            id="lightness"
+            name="lightness"
+            min="0"
+            max="100"
+            required
+          />
+          <br />
+          <button type="submit">Convert</button>
+        </form>
+        <p id="hslToRgbResult"></p>
+      </div>
+    </main>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/loadHFH.js"></script>
+
+    <script>
+      // Html elements
+      // RGB to Hex Converter
+      const rgbToHexForm = document.getElementById("rgbToHexForm");
+      const redInput = document.getElementById("red");
+      const greenInput = document.getElementById("green");
+      const blueInput = document.getElementById("blue");
+      const rgbToHexResult = document.getElementById("rgbToHexResult");
+
+      // Hex to RGB Converter
+      const hexToRgbForm = document.getElementById("hexToRgbForm");
+      const hexInput = document.getElementById("hex");
+      const hexToRgbResult = document.getElementById("hexToRgbResult");
+
+      // Color Previewer
+      const colorPreviewForm = document.getElementById("colorPreviewForm");
+      const previewRedInput = document.getElementById("previewRed");
+      const previewGreenInput = document.getElementById("previewGreen");
+      const previewBlueInput = document.getElementById("previewBlue");
+      const previewHexInput = document.getElementById("previewHex");
+      const previewColorButton = document.getElementById("previewColorButton");
+      const colorPreviewBox = document.getElementById("colorPreviewBox");
+
+      // RGB to HSL Converter
+      const rgbToHslForm = document.getElementById("rgbToHslForm");
+      const hslRedInput = document.getElementById("hslRed");
+      const hslGreenInput = document.getElementById("hslGreen");
+      const hslBlueInput = document.getElementById("hslBlue");
+      const rgbToHslResult = document.getElementById("rgbToHslResult");
+
+      // HSL to RGB Converter
+      const hslToRgbForm = document.getElementById("hslToRgbForm");
+      const hueInput = document.getElementById("hue");
+      const saturationInput = document.getElementById("saturation");
+      const lightnessInput = document.getElementById("lightness");
+      const hslToRgbResult = document.getElementById("hslToRgbResult");
+
+      // RGB to Hex Converter
+      rgbToHexForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const r = parseInt(redInput.value, 10);
+        const g = parseInt(greenInput.value, 10);
+        const b = parseInt(blueInput.value, 10);
+        const hex = site.convert.colors.rgbToHex(r, g, b);
+        rgbToHexResult.textContent = `Hex: ${hex}`;
+      });
+
+      // Hex to RGB Converter
+      hexToRgbForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const hex = hexInput.value;
+        const rgb = site.convert.colors.hexToRgb(hex);
+        if (rgb) {
+          hexToRgbResult.textContent = `RGB: (${rgb.r}, ${rgb.g}, ${rgb.b})`;
+        } else {
+          hexToRgbResult.textContent = "Invalid Hex Code";
+        }
+      });
+
+      // Color Previewer
+      previewColorButton.addEventListener("click", () => {
+        const r = parseInt(previewRedInput.value, 10) || 0;
+        const g = parseInt(previewGreenInput.value, 10) || 0;
+        const b = parseInt(previewBlueInput.value, 10) || 0;
+        const hex =
+          previewHexInput.value || site.convert.colors.rgbToHex(r, g, b);
+        const rgb = hex.startsWith("#")
+          ? site.convert.colors.hexToRgb(hex)
+          : { r, g, b };
+        if (rgb) {
+          colorPreviewBox.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+        } else {
+          colorPreviewBox.style.backgroundColor = "transparent";
+        }
+      });
+
+      // RGB to HSL Converter
+      rgbToHslForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const r = parseInt(hslRedInput.value, 10);
+        const g = parseInt(hslGreenInput.value, 10);
+        const b = parseInt(hslBlueInput.value, 10);
+        const hsl = site.convert.colors.rgbToHsl(r, g, b);
+        rgbToHslResult.textContent = `HSL: (${hsl.h}°, ${hsl.s}%, ${hsl.l}%)`;
+      });
+
+      // HSL to RGB Converter
+      hslToRgbForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const h = parseInt(hueInput.value, 10);
+        const s = parseInt(saturationInput.value, 10);
+        const l = parseInt(lightnessInput.value, 10);
+        const rgb = site.convert.colors.hslToRgb(h, s, l);
+        hslToRgbResult.textContent = `RGB: (${rgb.r}, ${rgb.g}, ${rgb.b})`;
+      });
+    </script>
+  </body>
+</html>
