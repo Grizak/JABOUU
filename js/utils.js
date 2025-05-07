@@ -1,7 +1,7 @@
 // Create the list with utils
 const allUtils = [
   {
-    name: "Coorinate Converter",
+    name: "Coordinate Converter",
     file: "coord-dec-DMS-con",
     desc: "Convert between decimal coordinates and DMS (Degrees Minutes Seconds) coordinates",
   },
@@ -13,7 +13,7 @@ const allUtils = [
   {
     name: "Number Converter",
     file: "number-con",
-    desc: "Convert between hexdecimal, decimal and binary with ease!",
+    desc: "Convert between hexadecimal, decimal and binary with ease!",
   },
 ];
 
