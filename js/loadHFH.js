@@ -25,3 +25,7 @@ fetch("/html/partials/footer.html")
           : `${startYear} - ${currentYear}`;
     }
   });
+
+fetch(
+  "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5671784078924834"
+);
